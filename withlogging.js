@@ -27,23 +27,14 @@ function withLogging(fn) {
     };
 }
 
-function withCatch(fn) {
-    return function(a, b) {
-        try {
-            return fn(a, b);
-        } catch (error) {
-            console.log("Error occurred:", error);
-        }
-    };
-}
 
 
 const test = withCatch(withLogging(add));
 
 console.log(test(1, 2)); 
 console.log(test(3, 5)); 
-console.log(test(1, 2)); // from catch
+console.log(test(1, 2)); // from cache
 console.log(test(7, 8)); 
-console.log(test(3, 5)); // from catch
+console.log(test(3, 5)); // from cache
 
 console.log(history);
