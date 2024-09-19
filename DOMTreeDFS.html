@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM DFS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #4caf50;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            border-radius: 8px;
+        }
+
+        #header-title {
+            margin: 0;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        article {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        aside {
+            margin-left: 20px;
+        }
+
+        #example-link {
+            text-decoration: none;
+            color: #2196f3;
+            font-weight: bold;
+        }
+
+        #example-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2 id="header-title">DOM DFS</h2>
+</header>
+
+<section>
+
+    <aside>
+        <a href="#" id="example-link">Link1</a>
+        <a href="#" id="example-link2">Link2</a>
+    </aside>
+    <footer>
+        <button id="modifyBtn">Launch nuclear missile to usa</button>
+    </footer>
+</section>
+S
+<script>
+    function listDOMElements(node) {
+        console.log(node.nodeName);
+        Array.from(node.children).forEach(child => listDOMElements(child));
+    }
+
+    const docElement = document.documentElement;
+    listDOMElements(docElement);
+</script>
+
+</body>
+</html>
